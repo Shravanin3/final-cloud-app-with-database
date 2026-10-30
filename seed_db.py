@@ -102,3 +102,4 @@ Enrollment.objects.get_or_create(
 )
 
 print("Database seeded successfully!")
+
