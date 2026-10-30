@@ -3,14 +3,14 @@ FINAL PROJECT: ADD A NEW ASSESSMENT FEATURE TO AN ONLINE COURSE APP
 COURSERA SUBMISSION RESPONSES & ASSETS
 ================================================================================
 
-GitHub Repository Name: final-cloud-app-with-database
+GitHub Repository Name: tfjzl-final-cloud-app-with-database
 GitHub Username: Shravanin3
-Repository Branch: main
+Repository Branch: main (also synced to master)
 
 --------------------------------------------------------------------------------
 Task 1: GitHub URL of models.py (3 points)
 --------------------------------------------------------------------------------
-https://github.com/Shravanin3/final-cloud-app-with-database/blob/main/onlinecourse/models.py
+https://github.com/Shravanin3/tfjzl-final-cloud-app-with-database/blob/main/onlinecourse/models.py
 
 Local File: C:\Users\shrav\Downloads\github coursera\course9\onlinecourse\models.py
 
@@ -18,7 +18,7 @@ Local File: C:\Users\shrav\Downloads\github coursera\course9\onlinecourse\models
 --------------------------------------------------------------------------------
 Task 2: GitHub URL of admin.py (3 points)
 --------------------------------------------------------------------------------
-https://github.com/Shravanin3/final-cloud-app-with-database/blob/main/onlinecourse/admin.py
+https://github.com/Shravanin3/tfjzl-final-cloud-app-with-database/blob/main/onlinecourse/admin.py
 
 Local File: C:\Users\shrav\Downloads\github coursera\course9\onlinecourse\admin.py
 
@@ -35,17 +35,17 @@ C:\Users\shrav\Downloads\github coursera\course9\03-admin-site.png
 --------------------------------------------------------------------------------
 Task 4: GitHub URL of course_details_bootstrap.html (2 points)
 --------------------------------------------------------------------------------
-https://github.com/Shravanin3/final-cloud-app-with-database/blob/main/onlinecourse/templates/onlinecourse/course_details_bootstrap.html
+https://github.com/Shravanin3/tfjzl-final-cloud-app-with-database/blob/main/onlinecourse/templates/onlinecourse/course_details_bootstrap.html
 
 Local File: C:\Users\shrav\Downloads\github coursera\course9\onlinecourse\templates\onlinecourse\course_details_bootstrap.html
 (Note: course_detail_bootstrap.html is also included in the repository with identical content:
-https://github.com/Shravanin3/final-cloud-app-with-database/blob/main/onlinecourse/templates/onlinecourse/course_detail_bootstrap.html)
+https://github.com/Shravanin3/tfjzl-final-cloud-app-with-database/blob/main/onlinecourse/templates/onlinecourse/course_detail_bootstrap.html)
 
 
 --------------------------------------------------------------------------------
 Task 5: GitHub URL of views.py (2 points)
 --------------------------------------------------------------------------------
-https://github.com/Shravanin3/final-cloud-app-with-database/blob/main/onlinecourse/views.py
+https://github.com/Shravanin3/tfjzl-final-cloud-app-with-database/blob/main/onlinecourse/views.py
 
 Local File: C:\Users\shrav\Downloads\github coursera\course9\onlinecourse\views.py
 
@@ -53,7 +53,7 @@ Local File: C:\Users\shrav\Downloads\github coursera\course9\onlinecourse\views.
 --------------------------------------------------------------------------------
 Task 6: GitHub URL of urls.py (2 points)
 --------------------------------------------------------------------------------
-https://github.com/Shravanin3/final-cloud-app-with-database/blob/main/onlinecourse/urls.py
+https://github.com/Shravanin3/tfjzl-final-cloud-app-with-database/blob/main/onlinecourse/urls.py
 
 Local File: C:\Users\shrav\Downloads\github coursera\course9\onlinecourse\urls.py
 
@@ -65,13 +65,4 @@ Image Name: 07-final
 Screenshot File to Upload:
 C:\Users\shrav\Downloads\github coursera\course9\07-final.png
 (or C:\Users\shrav\Downloads\github coursera\course9\07-final.jpg)
-
 ================================================================================
-HOW TO PUSH TO GITHUB (If not already created):
-================================================================================
-1. Fork https://github.com/ibm-developer-skills-network/final-cloud-app-with-database to your GitHub account (or create a new repo named 'final-cloud-app-with-database').
-2. In PowerShell or Command Prompt, run:
-   cd "C:\Users\shrav\Downloads\github coursera\course9"
-   git push -u origin main --force
-================================================================================
-

@@ -128,7 +128,7 @@ def submit(request, course_id):
     return HttpResponseRedirect(reverse(viewname='onlinecourse:show_exam_result', args=(course.id, submission.id)))
 
 
-# <HINT> An example method to collect the selected choices from the exam form from the request object
+# An example method to collect the selected choices from the exam form from the request object
 def extract_answers(request):
     submitted_answers = []
     for key in request.POST:
@@ -146,40 +146,49 @@ def extract_answers(request):
         # For each selected choice, check if it is a correct answer or not
         # Calculate the total score
 def show_exam_result(request, course_id, submission_id):
+    context = {}
     course = get_object_or_404(Course, pk=course_id)
     submission = get_object_or_404(Submission, pk=submission_id)
-    total = 0
-    total_user = 0
+
+    # Get selected choice ids from submission record
+    choices = submission.choices.all()
+    selected_ids = [choice.id for choice in choices]
+
+    # Calculate total and possible score using is_get_score()
+    total_score = 0
+    possible = 0
     q_results = {}
     c_submits = {}
     c_results = {}
-    for q in course.question_set.all():
-        q_total = 0
-        q_total_user = 0
-        for c in q.choice_set.all():
-            q_total += 1
-            temp_right = c.is_correct
-            count = submission.choices.filter(id=c.id).count()
 
-            temp_user = count > 0
-            c_submits[c.id] = temp_user
-            c_results[c.id] = (temp_user == temp_right)
-            if temp_user == temp_right:
-                q_total_user += 1
-        if q_total > 0:
-            q_results[q.id] = q.grade * (q_total_user / q_total)
+    for question in course.question_set.all():
+        possible += question.grade
+        # Use is_get_score() to check if question was answered correctly
+        if question.is_get_score(selected_ids):
+            total_score += question.grade
+            q_results[question.id] = question.grade
         else:
-            q_results[q.id] = 0
-        total += q.grade
-        total_user += q_results[q.id]
+            q_results[question.id] = 0
 
-    context = {}
-    context["course"] = course
-    context["submission"] = submission
-    context["total"] = total
-    context["total_user"] = int(total_user) if total_user == int(total_user) else total_user
-    context["q_results"] = q_results
-    context["c_submits"] = c_submits
-    context["c_results"] = c_results
-    context["grade"] = int((total_user / total) * 100) if total > 0 else 0
+        for choice in question.choice_set.all():
+            is_selected = choice.id in selected_ids
+            c_submits[choice.id] = is_selected
+            c_results[choice.id] = (is_selected == choice.is_correct)
+
+    grade = round(total_score * 100 / possible) if possible > 0 else 0
+
+    context['course'] = course
+    context['submission'] = submission
+    context['choices'] = choices
+    context['selected_ids'] = selected_ids
+    context['possible'] = possible
+    context['possible_score'] = possible
+    context['total_score'] = total_score
+    context['total'] = possible
+    context['total_user'] = total_score
+    context['grade'] = grade
+    context['q_results'] = q_results
+    context['c_submits'] = c_submits
+    context['c_results'] = c_results
+
     return render(request, 'onlinecourse/exam_result_bootstrap.html', context)
